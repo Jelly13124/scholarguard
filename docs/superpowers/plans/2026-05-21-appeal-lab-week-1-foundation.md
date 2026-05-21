@@ -206,9 +206,15 @@ git -c user.name="The Appeal Lab" -c user.email="noreply@theappeallab.com" commi
 Write file `tests/test_buffer_config.py`:
 ```python
 """Tests for buffer_config.py — env loading and validation."""
-import os
 import pytest
 from scripts.buffer_config import BufferConfig, ConfigError
+
+
+@pytest.fixture(autouse=True)
+def _disable_dotenv_reload(monkeypatch):
+    """Prevent load_dotenv() inside from_env() from re-reading the real .env file
+    during tests, so monkeypatch.delenv/.setenv stays authoritative."""
+    monkeypatch.setattr("scripts.buffer_config.load_dotenv", lambda *a, **kw: None)
 
 
 def test_config_loads_from_env(monkeypatch):
@@ -229,6 +235,7 @@ def test_config_raises_when_token_missing(monkeypatch):
     monkeypatch.delenv("BUFFER_ACCESS_TOKEN", raising=False)
     monkeypatch.setenv("BUFFER_CHANNEL_X", "x-id")
     monkeypatch.setenv("BUFFER_CHANNEL_IG", "ig-id")
+    monkeypatch.setenv("BUFFER_ORG_ID", "org-id")
 
     with pytest.raises(ConfigError, match="BUFFER_ACCESS_TOKEN"):
         BufferConfig.from_env()
@@ -238,10 +245,13 @@ def test_config_raises_when_channel_missing(monkeypatch):
     monkeypatch.setenv("BUFFER_ACCESS_TOKEN", "test-token")
     monkeypatch.delenv("BUFFER_CHANNEL_X", raising=False)
     monkeypatch.setenv("BUFFER_CHANNEL_IG", "ig-id")
+    monkeypatch.setenv("BUFFER_ORG_ID", "org-id")
 
     with pytest.raises(ConfigError, match="BUFFER_CHANNEL_X"):
         BufferConfig.from_env()
 ```
+
+**Note:** The autouse `_disable_dotenv_reload` fixture is required because `conftest.py` calls `load_dotenv()` at module level, and `from_env()` also calls it; without the stub, `monkeypatch.delenv` is undone when `load_dotenv()` re-reads the real `.env`. Production code unaffected.
 
 - [ ] **Step 2: Run test to verify it fails**
 
