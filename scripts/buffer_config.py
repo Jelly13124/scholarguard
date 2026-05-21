@@ -24,12 +24,7 @@ class BufferConfig:
 
     @classmethod
     def from_env(cls) -> "BufferConfig":
-        # Only load .env if not already loaded (allows test isolation via monkeypatch)
-        if not any(key in os.environ for key in [
-            "BUFFER_ACCESS_TOKEN", "BUFFER_CHANNEL_X",
-            "BUFFER_CHANNEL_IG", "BUFFER_ORG_ID"
-        ]):
-            load_dotenv()
+        load_dotenv()
 
         required = {
             "BUFFER_ACCESS_TOKEN": os.getenv("BUFFER_ACCESS_TOKEN"),
