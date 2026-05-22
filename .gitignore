@@ -14,3 +14,7 @@ Thumbs.db
 dist/
 build/
 *.log
+
+# raw (non-anonymized) case material — never commit
+cases/_inbox/
+cases/_raw/
