@@ -131,6 +131,69 @@ class BufferClient:
         message = result.get("message", "")
         raise BufferAPIError(f"createPost: {typename}: {message}")
 
+    def create_thread(
+        self,
+        *,
+        channel_id: str,
+        segments: list[str],
+        due_at: Optional[str] = None,
+        save_to_draft: bool = False,
+    ) -> str:
+        """Create an X thread (multi-tweet post).
+
+        First segment becomes the head tweet (text field). Remaining segments
+        are added under metadata.twitter.thread as ThreadedPostInput items.
+        """
+        if len(segments) < 2:
+            raise ValueError("Thread requires at least 2 segments")
+        for i, s in enumerate(segments):
+            if len(s) > 280:
+                raise ValueError(
+                    f"Segment {i} is {len(s)} chars (X limit is 280)"
+                )
+
+        head, *rest = segments
+        thread_items = [{"text": s, "assets": []} for s in rest]
+
+        mutation = (
+            "mutation CreatePost($input: CreatePostInput!) {\n"
+            "  createPost(input: $input) {"
+            + _CREATE_FRAGMENT
+            + "  }\n}"
+        )
+        mode = "customScheduled" if (due_at and not save_to_draft) else "addToQueue"
+        variables = {
+            "input": {
+                "channelId": channel_id,
+                "text": head,
+                "schedulingType": "automatic",
+                "mode": mode,
+                "saveToDraft": save_to_draft,
+                "assets": [],
+                "metadata": {
+                    "twitter": {
+                        "thread": thread_items,
+                    }
+                },
+            }
+        }
+        if due_at and not save_to_draft:
+            variables["input"]["dueAt"] = due_at
+
+        data = self._post(mutation, variables)
+        result = data.get("createPost") or {}
+        typename = result.get("__typename")
+        if typename == "PostActionSuccess":
+            post = result.get("post") or {}
+            post_id = post.get("id")
+            if not post_id:
+                raise BufferAPIError(
+                    f"create_thread: PostActionSuccess returned no post.id ({result})"
+                )
+            return post_id
+        message = result.get("message", "")
+        raise BufferAPIError(f"create_thread: {typename}: {message}")
+
     def delete_post(self, post_id: str) -> bool:
         mutation = (
             "mutation DeletePost($input: DeletePostInput!) {\n"
