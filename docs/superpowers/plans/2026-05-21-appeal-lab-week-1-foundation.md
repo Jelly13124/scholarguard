@@ -12,6 +12,18 @@
 
 **Estimated time:** 8-10 hours total for Week 1 (this is the brief's acknowledged W1-2 ramp window; steady state drops to 3-5 h/week from W3+).
 
+> **⚠ Plan vs implementation — schema corrections applied during execution:**
+> Tasks 4 and 5 below show the originally-drafted GraphQL payload shapes,
+> which turned out to differ from Buffer's actual schema. The code in
+> commits `ec67681` (Task 4) and `0cf4fcd` (Task 5) is the source of truth.
+> Key corrections (verified via live schema introspection):
+> - `CreatePostInput.channelId` is a single scalar, not a list
+> - `CreatePostInput.schedulingType` is a single enum (`automatic` | `notification`), not a list
+> - `CreatePostInput.mode` is required (`addToQueue` / `customScheduled` / `shareNow` / `shareNext` / `recommendedTime`)
+> - `createPost` returns `PostActionPayload` UNION → inline fragments needed to extract `post.id`
+> - `deletePost` returns a different `DeletePostPayload` UNION with `id` directly on `DeletePostSuccess`
+> - X thread continuation field is `metadata.twitter.thread` (list of `ThreadedPostInput`), not `threadedPosts`
+
 ---
 
 ## File Structure
