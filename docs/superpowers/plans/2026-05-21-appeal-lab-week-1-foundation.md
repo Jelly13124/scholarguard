@@ -1,4 +1,4 @@
-# The Appeal Lab — Week 1 Foundation Implementation Plan
+# ScholarGuard Path — Week 1 Foundation Implementation Plan
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
@@ -49,7 +49,7 @@ social_media_auto/
 │   ├── CASE-TEMPLATE.md                  CREATE — C-S-O + anonymization template
 │   └── CASE-001..010-*.md                CREATE — 10 anonymized real cases
 ├── voice/
-│   └── the-appeal-lab-voice.md           CREATE — output of voice-builder skill
+│   └── scholarguard-path-voice.md           CREATE — output of voice-builder skill
 └── docs/superpowers/plans/
     └── 2026-05-21-appeal-lab-week-1-foundation.md   (this file)
 ```
@@ -132,7 +132,7 @@ Expected: `OK`
 
 ```powershell
 git add .gitignore requirements.txt
-git -c user.name="The Appeal Lab" -c user.email="noreply@theappeallab.com" commit -m "chore: add python venv + requirements"
+git -c user.name="ScholarGuard Path" -c user.email="noreply@scholarguardpath.com" commit -m "chore: add python venv + requirements"
 ```
 
 ---
@@ -202,7 +202,7 @@ def channel_ig():
 
 ```powershell
 git add scripts/__init__.py tests/__init__.py tests/conftest.py cases/.gitkeep voice/.gitkeep lead-magnets/.gitkeep kpi/.gitkeep posts/.gitkeep web/.gitkeep
-git -c user.name="The Appeal Lab" -c user.email="noreply@theappeallab.com" commit -m "chore: scaffold project directory layout"
+git -c user.name="ScholarGuard Path" -c user.email="noreply@scholarguardpath.com" commit -m "chore: scaffold project directory layout"
 ```
 
 ---
@@ -338,7 +338,7 @@ Expected: 3 passed.
 
 ```powershell
 git add scripts/buffer_config.py tests/test_buffer_config.py
-git -c user.name="The Appeal Lab" -c user.email="noreply@theappeallab.com" commit -m "feat: add buffer config loader with env validation"
+git -c user.name="ScholarGuard Path" -c user.email="noreply@scholarguardpath.com" commit -m "feat: add buffer config loader with env validation"
 ```
 
 ---
@@ -419,7 +419,7 @@ Write file `scripts/buffer_client.py`:
 Endpoint: https://api.buffer.com/graphql
 Auth:     Bearer token (loaded from BufferConfig)
 
-Only the operations needed for The Appeal Lab content pipeline are
+Only the operations needed for ScholarGuard Path content pipeline are
 exposed. Threads (X multi-tweet) are added in a separate method.
 """
 from __future__ import annotations
@@ -547,7 +547,7 @@ If `create_draft_post_to_x_returns_id` fails with a Buffer error mentioning requ
 
 ```powershell
 git add scripts/buffer_client.py tests/test_buffer_client.py
-git -c user.name="The Appeal Lab" -c user.email="noreply@theappeallab.com" commit -m "feat: buffer client with createPost and deletePost (draft mode)"
+git -c user.name="ScholarGuard Path" -c user.email="noreply@scholarguardpath.com" commit -m "feat: buffer client with createPost and deletePost (draft mode)"
 ```
 
 ---
@@ -687,7 +687,7 @@ Adjust the field name in `metadata.twitter` accordingly and rerun the tests.
 
 ```powershell
 git add scripts/buffer_client.py tests/test_buffer_client.py
-git -c user.name="The Appeal Lab" -c user.email="noreply@theappeallab.com" commit -m "feat: x thread support via threadedPosts metadata"
+git -c user.name="ScholarGuard Path" -c user.email="noreply@scholarguardpath.com" commit -m "feat: x thread support via threadedPosts metadata"
 ```
 
 ---
@@ -723,7 +723,7 @@ GEMINI_API_KEY=your_gemini_key_here
 
 ```powershell
 git add .env.example
-git -c user.name="The Appeal Lab" -c user.email="noreply@theappeallab.com" commit -m "docs: add .env.example reference"
+git -c user.name="ScholarGuard Path" -c user.email="noreply@scholarguardpath.com" commit -m "docs: add .env.example reference"
 ```
 
 ---
@@ -759,15 +759,15 @@ Create one event type: "30-min appeal strategy call", duration 30 min, default a
 
 Verification: visit `https://cal.com/<your-handle>/30min` in a browser and confirm a booking page loads.
 
-- [ ] **Step 3: Purchase theappeallab.com**
+- [ ] **Step 3: Purchase scholarguardpath.com**
 
 Recommended registrar: **Cloudflare Registrar** (https://dash.cloudflare.com/) — at-cost pricing, no upselling, free WHOIS privacy.
 
-Sign in, search `theappeallab.com`. Approx $9-12/year. If taken, fall back to `theappeallab.co` or `appeallab.io` (update spec accordingly).
+Sign in, search `scholarguardpath.com`. Approx $9-12/year. If taken, fall back to `scholarguardpath.co` or `appeallab.io` (update spec accordingly).
 
 Verification:
 ```powershell
-nslookup theappeallab.com
+nslookup scholarguardpath.com
 ```
 Expected: returns either Cloudflare nameservers (post-purchase) or NXDOMAIN if you haven't bought yet.
 
@@ -793,7 +793,7 @@ If you added `CONVERTKIT_*` placeholders to `.env.example` during this task, com
 ```powershell
 git diff .env.example
 git add .env.example
-git -c user.name="The Appeal Lab" -c user.email="noreply@theappeallab.com" commit -m "docs: add convertkit and gemini placeholders to env example"
+git -c user.name="ScholarGuard Path" -c user.email="noreply@scholarguardpath.com" commit -m "docs: add convertkit and gemini placeholders to env example"
 ```
 
 Confirm `.env` itself is NOT staged:
@@ -808,9 +808,9 @@ Expected: `.env` not listed under "Changes to be committed".
 
 - [ ] **Step 1: Rename X handle**
 
-Go to https://twitter.com/settings/screen_name. Change `RuizheYuan15453` → `theappeallab`. Save.
+Go to https://twitter.com/settings/screen_name. Change `RuizheYuan15453` → `scholarguardpath`. Save.
 
-Verification: visit https://twitter.com/theappeallab. Expected: your profile loads.
+Verification: visit https://twitter.com/scholarguardpath. Expected: your profile loads.
 
 - [ ] **Step 2: Reconnect X channel in Buffer**
 
@@ -822,7 +822,7 @@ Go to https://publish.buffer.com/channels. Click on the X (Twitter) channel. Cli
 $token = ((Get-Content .env | Select-String "^BUFFER_ACCESS_TOKEN=").ToString() -split "=", 2)[1]; $body = '{"query":"query { account { organizations { channels { service name } } } }"}'; (Invoke-WebRequest -Uri "https://api.buffer.com/graphql" -Headers @{Authorization="Bearer $token"; "Content-Type"="application/json"} -Method Post -Body $body -UseBasicParsing).Content
 ```
 
-Expected: in the response, the twitter channel `name` field is `theappeallab`.
+Expected: in the response, the twitter channel `name` field is `scholarguardpath`.
 
 - [ ] **Step 4: If channel ID changed (because of reconnect), update .env**
 
@@ -844,11 +844,11 @@ Expected: 6 passed.
 
 - [ ] **Step 1: Change X channel timezone to America/New_York**
 
-Go to https://publish.buffer.com → click on the X channel (now @theappeallab). Click **Settings** (gear icon) → **Posting Schedule** → **Time Zone** dropdown → select `(GMT-05:00) New York` → **Save**.
+Go to https://publish.buffer.com → click on the X channel (now @scholarguardpath). Click **Settings** (gear icon) → **Posting Schedule** → **Time Zone** dropdown → select `(GMT-05:00) New York` → **Save**.
 
 - [ ] **Step 2: Change IG channel timezone to America/New_York**
 
-Repeat Step 1 for the Instagram channel (@appeal_lab).
+Repeat Step 1 for the Instagram channel (@scholarguardpath).
 
 - [ ] **Step 3: Verify via API**
 
@@ -860,10 +860,10 @@ Expected: both channels show `"timezone":"America/New_York"`.
 
 ---
 
-## Task 10: Generate The Appeal Lab Voice Doc
+## Task 10: Generate ScholarGuard Path Voice Doc
 
 **Files:**
-- Create: `voice/the-appeal-lab-voice.md`
+- Create: `voice/scholarguard-path-voice.md`
 
 This task invokes the `voice-builder` skill from the `charlie947/social-media-skills` marketplace via Claude Code.
 
@@ -879,22 +879,22 @@ Then ask Claude:
 
 Expected: `voice-builder` appears (or equivalent). If not, install the marketplace plugin per the original brief setup.
 
-- [ ] **Step 2: Invoke voice-builder with The Appeal Lab inputs**
+- [ ] **Step 2: Invoke voice-builder with ScholarGuard Path inputs**
 
 Tell Claude:
-> "Invoke the voice-builder skill to create a voice doc for 'The Appeal Lab'. Inputs:
+> "Invoke the voice-builder skill to create a voice doc for 'ScholarGuard Path'. Inputs:
 >
-> - **Brand:** The Appeal Lab — faceless case-analysis research team. Tagline: 'We break down real US & UK academic appeal cases — so yours can win too.'
+> - **Brand:** ScholarGuard Path — faceless case-analysis research team. Tagline: 'We break down real US & UK academic cases — appeals, study, and what actually works.'
 > - **Audience:** US and UK university students facing academic misconduct allegations, failing grades, AI-detection false positives, extenuating circumstances
 > - **Voice traits:** 'we'/'the lab' (never 'I'), direct, evidence-based, no hype, no urgency, no fake scarcity, never claims legal advice, never guarantees outcomes
 > - **Vocabulary to avoid:** 'guaranteed', 'always wins', 'secret', 'foolproof', 'crush it', 'destroy', and AI-tell phrases listed in the humanizer skill (em-dash overuse, rule-of-three filler, 'leverage', 'utilize', 'in today's landscape', etc.)
 > - **Vocabulary to favor:** plain English, specific verbs, concrete numbers, named structures
 > - **5 example posts to seed:** synthesize 5 hooks/short examples that follow C-S-O formula from the spec at `docs/superpowers/specs/2026-05-20-appeal-lab-content-system-design.md`
-> - **Save to:** `voice/the-appeal-lab-voice.md`"
+> - **Save to:** `voice/scholarguard-path-voice.md`"
 
 - [ ] **Step 3: Verify the voice doc covers required constraints**
 
-Open `voice/the-appeal-lab-voice.md` and confirm it contains all of:
+Open `voice/scholarguard-path-voice.md` and confirm it contains all of:
 - [ ] "we" / "the lab" usage rule (never first-person singular)
 - [ ] Explicit "no legal advice" disclaimer language pattern
 - [ ] Explicit "no guaranteed outcomes" rule
@@ -908,8 +908,8 @@ If any item is missing, re-prompt the voice-builder skill with the missing items
 - [ ] **Step 4: Commit voice doc**
 
 ```powershell
-git add voice/the-appeal-lab-voice.md
-git -c user.name="The Appeal Lab" -c user.email="noreply@theappeallab.com" commit -m "feat: generate the appeal lab voice doc"
+git add voice/scholarguard-path-voice.md
+git -c user.name="ScholarGuard Path" -c user.email="noreply@scholarguardpath.com" commit -m "feat: generate the appeal lab voice doc"
 ```
 
 ---
@@ -971,7 +971,7 @@ anonymized: false
 
 ```powershell
 git add cases/CASE-TEMPLATE.md
-git -c user.name="The Appeal Lab" -c user.email="noreply@theappeallab.com" commit -m "feat: case anonymization template with c-s-o structure"
+git -c user.name="ScholarGuard Path" -c user.email="noreply@scholarguardpath.com" commit -m "feat: case anonymization template with c-s-o structure"
 ```
 
 ---
@@ -1026,7 +1026,7 @@ Expected: **no matches**. Any match → fix the case and re-run.
 
 ```powershell
 git add cases/CASE-001-*.md cases/CASE-002-*.md cases/CASE-003-*.md
-git -c user.name="The Appeal Lab" -c user.email="noreply@theappeallab.com" commit -m "feat: anonymize first 3 cases (P2 ai-detection, P1 misconduct, P3/P4)"
+git -c user.name="ScholarGuard Path" -c user.email="noreply@scholarguardpath.com" commit -m "feat: anonymize first 3 cases (P2 ai-detection, P1 misconduct, P3/P4)"
 ```
 
 ---
@@ -1052,7 +1052,7 @@ Expected: no matches.
 
 ```powershell
 git add cases/CASE-004-*.md cases/CASE-005-*.md cases/CASE-006-*.md
-git -c user.name="The Appeal Lab" -c user.email="noreply@theappeallab.com" commit -m "feat: anonymize cases 004-006"
+git -c user.name="ScholarGuard Path" -c user.email="noreply@scholarguardpath.com" commit -m "feat: anonymize cases 004-006"
 ```
 
 ---
@@ -1086,7 +1086,7 @@ Expected: rough distribution matching Phase 1 weights — P2 ~40%, P1 ~25%, othe
 
 ```powershell
 git add cases/CASE-007-*.md cases/CASE-008-*.md cases/CASE-009-*.md cases/CASE-010-*.md
-git -c user.name="The Appeal Lab" -c user.email="noreply@theappeallab.com" commit -m "feat: anonymize cases 007-010, complete 10-case foundation library"
+git -c user.name="ScholarGuard Path" -c user.email="noreply@scholarguardpath.com" commit -m "feat: anonymize cases 007-010, complete 10-case foundation library"
 ```
 
 ---
@@ -1167,15 +1167,15 @@ Write file `kpi/week-2026-05-21-foundation-complete.md`:
 
 ## Pre-launch Checklist (from spec)
 
-- [x] X renamed @RuizheYuan15453 → @theappeallab
+- [x] X renamed @RuizheYuan15453 → @scholarguardpath
 - [x] Buffer X channel reconnected, new handle reflected via API
 - [x] Buffer X channel timezone = America/New_York
 - [x] Buffer IG channel timezone = America/New_York
 - [x] ConvertKit Free account active, API keys in .env
 - [x] Cal.com Free account active, Google Calendar connected, 30-min event type created
-- [x] theappeallab.com purchased (or fallback recorded: ___)
+- [x] scholarguardpath.com purchased (or fallback recorded: ___)
 - [x] Gemini API key in .env, verified working
-- [x] voice/the-appeal-lab-voice.md exists and covers required constraints
+- [x] voice/scholarguard-path-voice.md exists and covers required constraints
 - [x] 10 anonymized cases in cases/ (verified by anonymization grep)
 - [x] Buffer client end-to-end smoke test passed (draft created + deleted)
 
@@ -1222,7 +1222,7 @@ Expected: `git status` shows only the new kpi file (or clean). `git log` shows ~
 
 ```powershell
 git add kpi/week-2026-05-21-foundation-complete.md
-git -c user.name="The Appeal Lab" -c user.email="noreply@theappeallab.com" commit -m "docs: w1 foundation complete status note"
+git -c user.name="ScholarGuard Path" -c user.email="noreply@scholarguardpath.com" commit -m "docs: w1 foundation complete status note"
 ```
 
 - [ ] **Step 4: Run full test suite one last time**

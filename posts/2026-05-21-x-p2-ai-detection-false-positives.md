@@ -32,7 +32,7 @@ created: 2026-05-21
 
 6/ One thing to do today if you write for school: turn on revision history. Google Docs, Word, Overleaf all save it. If you're ever flagged, that history is the cheapest defense you'll find.
 
-7/ More US/UK academic appeal breakdowns coming. We analyze real anonymized cases — letter structures, hearing prep, evidence framing. Follow if you write things that need to land. #UKAcademicAppeal
+7/ More US/UK academic case breakdowns coming — appeals, study strategy, the patterns that actually work. Follow if you write things that need to land. #UKAcademic
 ```
 
 ## Notes
@@ -46,5 +46,5 @@ created: 2026-05-21
 
 ## Status
 
-- Pushed to Buffer as DRAFT (X channel). Buffer post id recorded in frontmatter once published.
-- ⚠ X channel still connected to @RuizheYuan15453 (pre-rename). Do not publish from Buffer dashboard until Task 8 rename + reconnect is complete, OR publish to personal account intentionally.
+- ⚠ Buffer draft at id `6a0ff31a0134cff812e03264` is **STALE** — was pushed before brand rename. Tweet 7 CTA in the live draft still references "academic appeal breakdowns" only. Delete + re-push needed before publish (or accept narrower CTA on this first post).
+- ⚠ X channel still connected to @RuizheYuan15453 (pre-rename to @scholarguardpath). Do not publish from Buffer dashboard until Task 8 rename + reconnect is complete, OR publish to personal account intentionally.
