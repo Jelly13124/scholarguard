@@ -1,4 +1,4 @@
-# ScholarGuard Path — Content System Design Spec
+# The ScholarGuard — Content System Design Spec
 
 **Date:** 2026-05-20
 **Status:** Design locked, pending Week 1 implementation plan
@@ -10,7 +10,7 @@
 
 ## Executive Summary
 
-ScholarGuard Path is a faceless brand publishing anonymized US/UK academic appeal case breakdowns on X and Instagram, with a 3-tier paid service ladder fed by a free lead magnet → email nurture funnel. The system is designed to consume real client cases (the operator's moat), produce 10 posts/week across two platforms via a 50-min-per-case dual-format workflow, and convert via low-friction email + DM channels to $99-$1000+ paid offers.
+The ScholarGuard is a faceless brand publishing anonymized US/UK academic appeal case breakdowns on X and Instagram, with a 3-tier paid service ladder fed by a free lead magnet → email nurture funnel. The system is designed to consume real client cases (the operator's moat), produce 10 posts/week across two platforms via a 50-min-per-case dual-format workflow, and convert via low-friction email + DM channels to $99-$1000+ paid offers.
 
 **Hard constraints driving every decision:**
 - No face / no voice (faceless brand)
@@ -30,7 +30,7 @@ ScholarGuard Path is a faceless brand publishing anonymized US/UK academic appea
 
 | Field | Value |
 |---|---|
-| Brand | ScholarGuard Path |
+| Brand | The ScholarGuard |
 | Tagline | "We break down real US & UK academic cases — appeals, study, and what actually works." |
 | Voice | Faceless tool-brand. "We" / "the lab." No personal IP. No individual author. |
 | Position | Case-analysis research team. **Not** a lawyer, **not** an individual influencer, **not** a teacher. |
@@ -41,8 +41,8 @@ ScholarGuard Path is a faceless brand publishing anonymized US/UK academic appea
 
 - **Primary colors:** Deep blue + cream/off-white + accent yellow
 - **Type:** Playfair or Lora serif for headlines; Inter sans-serif for body
-- **Domain:** scholarguardpath.com (to be purchased)
-- **Handles:** @scholarguardpath on X (rename from @RuizheYuan15453), @scholarguardpath on IG (rename from @appeal_lab)
+- **Domain:** thescholarguard.com (to be purchased)
+- **Handles:** @thescholarguard on X (rename from @RuizheYuan15453), @thescholarguard on IG (rename from @appeal_lab)
 
 ### Legal Guardrails (absolute, non-negotiable)
 
@@ -206,8 +206,8 @@ Auth: `Authorization: Bearer <access_token>` (stored in `.env`, gitignored)
 Available mutations: `createPost`, `editPost`, `deletePost`, `createIdea`
 
 **Connected channels (verified via API):**
-- X: `id=6a0d5d7d090476fb993c740f`, handle pending rename to @scholarguardpath
-- IG: `id=6a0d5dad090476fb993c752b`, handle @scholarguardpath, type=business (allows direct publishing)
+- X: `id=6a0d5d7d090476fb993c740f`, handle pending rename to @thescholarguard
+- IG: `id=6a0d5dad090476fb993c752b`, handle @thescholarguard, type=business (allows direct publishing)
 
 **Buffer Free limit:** 10 scheduled posts/channel. Workaround: weekly Sunday batch refill (5 posts/channel/week = within limit at all times).
 
@@ -217,12 +217,12 @@ Available mutations: `createPost`, `editPost`, `deletePost`, `createIdea`
 
 ## Section 4: Funnel Architecture
 
-### 4.1 Website (scholarguardpath.com)
+### 4.1 Website (thescholarguard.com)
 
 **Stack:** Astro static site → Cloudflare Pages (free tier).
 
 ```
-scholarguardpath.com/
+thescholarguard.com/
 ├── /                  Homepage (hero + email capture + recent cases grid)
 ├── /case-studies      Anonymized case archive (manual weekly copy of top 1-2 posts)
 ├── /templates         Lead-magnet landing pages (email gate)
@@ -343,7 +343,7 @@ scholarguardpath.com/
 | Booking | Cal.com Free | $0 | — |
 | Payments | Stripe Payment Links | 2.9% + $0.30/transaction | — |
 | Website | Cloudflare Pages + Astro static | $0 | — |
-| Domain | scholarguardpath.com via Namecheap/Cloudflare Registrar | $1/mo (~$12/year) | — |
+| Domain | thescholarguard.com via Namecheap/Cloudflare Registrar | $1/mo (~$12/year) | — |
 | Content calendar | `.md` files in project repo, Claude Code-maintained | $0 | If visual calendar becomes essential → Notion Free |
 
 **Steady-state monthly cost: $1-5** (domain + occasional Gemini overage) + Stripe % on revenue.
@@ -364,7 +364,7 @@ scholarguardpath.com/
 
 | Week | Tasks |
 |---|---|
-| **W1** | X rename @scholarguardpath + Buffer reconnect; Buffer TZ → America/New_York; register ConvertKit, Cal.com; buy domain; run voice-builder for ScholarGuard Path voice doc; prep 10 anonymized cases |
+| **W1** | X rename @thescholarguard + Buffer reconnect; Buffer TZ → America/New_York; register ConvertKit, Cal.com; buy domain; run voice-builder for The ScholarGuard voice doc; prep 10 anonymized cases |
 | **W2** | Deploy v0.1 homepage (hero + email capture only); Canva template set for X thread + IG carousel; first case dual-output produced; 6 posts published |
 | **W3-4** | Ramp to 8 posts/wk; LM-A "AI Detection Defense Kit" PDF completed; /templates page live |
 | **M2** | 10 posts/wk steady state; /case-studies page live (weekly manual archive of top 1-2 posts); review top 3 posts to lock templates |
@@ -487,15 +487,15 @@ Trigger?
 
 ## Pre-Launch Checklist (Operator Actions, Week 1)
 
-- [ ] Rename X handle: @RuizheYuan15453 → @scholarguardpath (https://twitter.com/settings/screen_name)
+- [ ] Rename X handle: @RuizheYuan15453 → @thescholarguard (https://twitter.com/settings/screen_name)
 - [ ] Buffer dashboard: disconnect + reconnect X channel after rename to refresh cached handle
 - [ ] Buffer dashboard: change both channel timezones to America/New_York
 - [ ] Buffer access token in `.env` (already done, but rotate after this session for safety)
 - [ ] Get Google AI Studio key for Gemini API (https://aistudio.google.com/apikey) → add to `.env` as `GEMINI_API_KEY` (needed for gemini-carousel / gemini-infographic image generation)
 - [ ] Register ConvertKit Free account
 - [ ] Register Cal.com Free account, connect Google Calendar
-- [ ] Purchase scholarguardpath.com (Namecheap or Cloudflare Registrar)
-- [ ] Confirm IG @scholarguardpath is set to Business account type (already verified via API)
+- [ ] Purchase thescholarguard.com (Namecheap or Cloudflare Registrar)
+- [ ] Confirm IG @thescholarguard is set to Business account type (already verified via API)
 - [ ] Anonymize first 10 case files for content pipeline
 
 ---
@@ -546,7 +546,7 @@ CTA: [LM-A | LM-B | /book | follow]
 
 1. **Sustained ghostwriting demand handling:** If DM inbound for ghostwriting becomes significant (>5/week), revisit whether to formalize a sister brand or maintain strict redirect. Decision deferred to Month 4 data review.
 2. **TikTok:** Explicitly out of scope per current plan. Revisit only if Phase 3 metrics suggest the operator wants a video presence (which would require breaking the faceless constraint).
-3. **Xiaohongshu / overseas Chinese student segment:** Out of scope for ScholarGuard Path. Handled in a separate plan if pursued.
+3. **Xiaohongshu / overseas Chinese student segment:** Out of scope for The ScholarGuard. Handled in a separate plan if pursued.
 4. **Affiliate / partnership channels:** Out of scope until Month 9+, revisit if revenue stabilizes above $1k/mo.
 
 ---

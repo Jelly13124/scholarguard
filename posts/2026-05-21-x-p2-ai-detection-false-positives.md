@@ -47,4 +47,4 @@ created: 2026-05-21
 ## Status
 
 - ⚠ Buffer draft at id `6a0ff31a0134cff812e03264` is **STALE** — was pushed before brand rename. Tweet 7 CTA in the live draft still references "academic appeal breakdowns" only. Delete + re-push needed before publish (or accept narrower CTA on this first post).
-- ⚠ X channel still connected to @RuizheYuan15453 (pre-rename to @scholarguardpath). Do not publish from Buffer dashboard until Task 8 rename + reconnect is complete, OR publish to personal account intentionally.
+- ⚠ X channel still connected to @RuizheYuan15453 (pre-rename to @thescholarguard). Do not publish from Buffer dashboard until Task 8 rename + reconnect is complete, OR publish to personal account intentionally.
