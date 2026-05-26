@@ -1,0 +1,4 @@
+# Cloudflare Pages / Netlify SPA fallback.
+# Per-route prerendered HTML files at dist/<route>/index.html take precedence;
+# anything unmatched (deep links, /case-studies/foo) falls back to index.html.
+/*  /index.html  200
