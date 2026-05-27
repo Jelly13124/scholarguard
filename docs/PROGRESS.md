@@ -34,7 +34,7 @@
 | Case inbox workflow | [cases/CASE-INBOX-WORKFLOW.md](../cases/CASE-INBOX-WORKFLOW.md) |
 | Local dev preview | http://localhost:5173 (when dev server up) |
 | Local prod preview | http://localhost:4173 (after `npm run build && npm run preview`) |
-| X handle (current) | @RuizheYuan15453 (pending rename to @thescholarguard) |
+| X handle | **@thescholarguard** ✅ (renamed 2026-05-26; Buffer reconnect still pending) |
 | IG handle | @thescholarguard ✅ |
 | Buffer org id | `6a0d4b9e08a819e41eacefc1` |
 | Buffer X channel id | `6a0d5d7d090476fb993c740f` |
@@ -95,9 +95,10 @@
 
 | # | Task | Next step |
 |---|---|---|
-| W1-#15 | X rename + Buffer reconnect | User: try @thescholarguard on https://x.com/settings/screen_name |
+| W1-#15 | X rename ✅ done 2026-05-26; **Buffer X channel reconnect pending** | Buffer dashboard → X channel → Settings → Connection → Disconnect → Reconnect (re-auths OAuth, picks up new handle) |
 | W1-#16 | Buffer 2 channel TZ → America/New_York | User: change in Buffer dashboard, both channels |
 | Deploy-1 | Cloudflare Pages setup | User: register/login Cloudflare → create Pages project from GH repo |
+| Handoff-1 | Project handoff to Claude Desktop | ✅ `CLAUDE.md` + `docs/PROGRESS.md` committed and pushed |
 
 ---
 
@@ -108,9 +109,8 @@
   - Blocks: custom domain on Pages, brand email, professional bio links
 
 ### Operational
-- [ ] X handle rename @RuizheYuan15453 → @thescholarguard
-  - Status: previously rate-limited; user re-trying now
-  - Blocks: Buffer X channel reconnect; first X post publish
+- [x] ~~X handle rename @RuizheYuan15453 → @thescholarguard~~ ✅ done 2026-05-26
+- [ ] Buffer X channel disconnect + reconnect (refresh OAuth cache to pick up new handle)
 - [ ] Buffer dashboard: change X channel timezone to America/New_York
 - [ ] Buffer dashboard: change IG channel timezone to America/New_York
   - Blocks: scheduled posts being published at intended ET times
